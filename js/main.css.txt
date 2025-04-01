@@ -1,0 +1,122 @@
+// Main application script
+document.addEventListener('DOMContentLoaded', function() {
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Check if we're on the homepage or a post page
+    if (document.getElementById('post-list')) {
+        loadPostList();
+    } else if (document.getElementById('post-content')) {
+        loadPostContent();
+    }
+});
+
+// Load and display list of posts
+async function loadPostList() {
+    try {
+        // In a real implementation, you might fetch a list.json file
+        // For this example, we'll use a hardcoded list from the posts directory
+        const posts = [
+            { 
+                slug: 'welcome', 
+                title: 'Welcome to My Blog', 
+                date: '2023-05-15', 
+                excerpt: 'This is my new minimal blog hosted on GitHub Pages.' 
+            }
+            // Add more posts as needed
+        ];
+        
+        const postList = document.getElementById('post-list');
+        postList.innerHTML = '';
+        
+        posts.forEach(post => {
+            const postElement = document.createElement('article');
+            postElement.className = 'post-card';
+            postElement.innerHTML = `
+                <h3 class="post-title"><a href="?post=${post.slug}">${post.title}</a></h3>
+                <div class="post-date">${formatDate(post.date)}</div>
+                <p class="post-excerpt">${post.excerpt}</p>
+                <a href="?post=${post.slug}" class="read-more">Read more →</a>
+            `;
+            postList.appendChild(postElement);
+        });
+    } catch (error) {
+        console.error('Error loading posts:', error);
+        document.getElementById('post-list').innerHTML = 
+            '<p class="error">Failed to load posts. Please try again later.</p>';
+    }
+}
+
+// Load and render a single post
+async function loadPostContent() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const postSlug = urlParams.get('post');
+    
+    if (!postSlug) {
+        window.location.href = '/';
+        return;
+    }
+    
+    try {
+        const response = await fetch(`posts/${postSlug}.md`);
+        if (!response.ok) throw new Error('Post not found');
+        
+        const markdown = await response.text();
+        const html = marked.parse(markdown);
+        
+        // Create the post content structure
+        const postContent = document.createElement('article');
+        postContent.className = 'post-content';
+        postContent.innerHTML = html;
+        
+        // Replace the loading indicator with the actual content
+        const container = document.getElementById('post-content') || document.querySelector('main');
+        container.innerHTML = '';
+        container.appendChild(postContent);
+        
+        // Update the page title
+        const postTitle = postContent.querySelector('h1')?.textContent || 'Blog Post';
+        document.title = `${postTitle} | Minimal Blog`;
+    } catch (error) {
+        console.error('Error loading post:', error);
+        const container = document.getElementById('post-content') || document.querySelector('main');
+        container.innerHTML = `
+            <div class="error">
+                <h2>Post Not Found</h2>
+                <p>The requested post could not be loaded.</p>
+                <a href="/">← Back to home</a>
+            </div>
+        `;
+    }
+}
+
+// Helper function to format dates
+function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+}
+
+// Handle navigation between homepage and posts
+function handleNavigation() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('post')) {
+        // We're viewing a post
+        if (!document.getElementById('post-content')) {
+            // Create post content container if it doesn't exist
+            const main = document.querySelector('main');
+            main.innerHTML = '<div id="post-content" class="loading">Loading post...</div>';
+        }
+        loadPostContent();
+    } else {
+        // We're on the homepage
+        if (document.getElementById('post-list')) {
+            loadPostList();
+        }
+    }
+}
+
+// Listen for back/forward navigation
+window.addEventListener('popstate', handleNavigation);
+
+// Initial load
+handleNavigation();
