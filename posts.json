@@ -1,4 +1,8 @@
 [
-  {"slug": "how-to-add-new-posts"},
-  {"slug": "welcome"}
+  {
+    "slug": "welcome"
+  },
+  {
+    "slug": "how-to-add-new-posts"
+  }
 ]
