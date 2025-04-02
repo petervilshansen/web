@@ -19,33 +19,25 @@ const POSTS_DIR = `${BASE_URL}posts/`;
 function extractMetadata(markdown) {
     const metadata = {
         title: '',
-        date: new Date().toISOString().split('T')[0], // Default to today
-        excerpt: ''
+        date: new Date().toISOString().split('T')[0],
+        excerpt: '',
+        image: ''
     };
 
-    // Extract title from first h1 (#) heading
-    const titleMatch = markdown.match(/^#\s+(.+)$/m);
-    if (titleMatch) {
-        metadata.title = titleMatch[1];
+    // HTML comment style front matter
+    const htmlCommentMatch = markdown.match(/<!--\s*([\s\S]*?)\s*-->/);
+    if (htmlCommentMatch) {
+        const frontMatter = htmlCommentMatch[1];
+        const dateMatch = frontMatter.match/date:\s*(.+)/i);
+        const excerptMatch = frontMatter.match/excerpt:\s*(.+)/i);
+        const imageMatch = frontMatter.match/image:\s*(.+)/i);
+
+        if (dateMatch) metadata.date = dateMatch[1].trim();
+        if (excerptMatch) metadata.excerpt = excerptMatch[1].trim();
+        if (imageMatch) metadata.image = imageMatch[1].trim();
     }
 
-    // Extract date from YAML front matter if present
-    const frontMatterMatch = markdown.match(/^---\s*\n([\s\S]*?)\n---/);
-    if (frontMatterMatch) {
-        const frontMatter = frontMatterMatch[1];
-        const dateMatch = frontMatter.match(/date:\s*(.+)/i);
-        if (dateMatch) {
-            metadata.date = dateMatch[1].trim();
-        }
-    }
-
-    // Extract excerpt (first paragraph after title)
-    const contentAfterTitle = markdown.replace(/^#\s+.+$\n/m, '');
-    const firstParagraphMatch = contentAfterTitle.match(/^(.*)$/m);
-    if (firstParagraphMatch) {
-        metadata.excerpt = firstParagraphMatch[1].substring(0, 120); // Limit excerpt length
-    }
-
+    // Rest of your extraction logic...
     return metadata;
 }
 
