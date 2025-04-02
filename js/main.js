@@ -13,24 +13,58 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Base URL for all links
 const BASE_URL = 'https://petervilshansen.github.io/web/';
+const POSTS_DIR = `${BASE_URL}posts/`;
+
+// Function to extract metadata from Markdown content
+function extractMetadata(markdown) {
+    const metadata = {
+        title: '',
+        date: new Date().toISOString().split('T')[0], // Default to today
+        excerpt: ''
+    };
+
+    // Extract title from first h1 (#) heading
+    const titleMatch = markdown.match(/^#\s+(.+)$/m);
+    if (titleMatch) {
+        metadata.title = titleMatch[1];
+    }
+
+    // Extract date from YAML front matter if present
+    const frontMatterMatch = markdown.match(/^---\s*\n([\s\S]*?)\n---/);
+    if (frontMatterMatch) {
+        const frontMatter = frontMatterMatch[1];
+        const dateMatch = frontMatter.match(/date:\s*(.+)/i);
+        if (dateMatch) {
+            metadata.date = dateMatch[1].trim();
+        }
+    }
+
+    // Extract excerpt (first paragraph after title)
+    const contentAfterTitle = markdown.replace(/^#\s+.+$\n/m, '');
+    const firstParagraphMatch = contentAfterTitle.match(/^(.*)$/m);
+    if (firstParagraphMatch) {
+        metadata.excerpt = firstParagraphMatch[1].substring(0, 120); // Limit excerpt length
+    }
+
+    return metadata;
+}
 
 // Load and display list of posts
 async function loadPostList() {
     try {
-        const posts = [
-            { 
-                slug: 'welcome', 
-                title: 'Welcome to My Blog', 
-                date: '2023-05-15', 
-                excerpt: 'This is my new minimal blog hosted on GitHub Pages.' 
-            }
-            // Add more posts as needed
-        ];
+        // Fetch the list of markdown files from the posts directory
+        // Note: This requires a directory listing enabled or a pre-generated index.json
+        // For GitHub Pages, we'll implement a workaround
+        const posts = await fetchPostsList();
         
         const postList = document.getElementById('post-list');
         postList.innerHTML = '';
         
-        posts.forEach(post => {
+        // Sort posts by date (newest first)
+        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        
+        // Display each post
+        for (const post of posts) {
             const postElement = document.createElement('article');
             postElement.className = 'post-card';
             postElement.innerHTML = `
@@ -40,11 +74,42 @@ async function loadPostList() {
                 <a href="${BASE_URL}?post=${post.slug}" class="read-more">Read more →</a>
             `;
             postList.appendChild(postElement);
-        });
+        }
     } catch (error) {
         console.error('Error loading posts:', error);
         document.getElementById('post-list').innerHTML = 
             '<p class="error">Failed to load posts. Please try again later.</p>';
+    }
+}
+
+async function fetchPostsList() {
+    try {
+        // Load the generated index
+        const response = await fetch(`${BASE_URL}posts.json`);
+        if (!response.ok) throw new Error('Could not load posts index');
+        
+        const slugs = await response.json();
+        const posts = [];
+        
+        for (const {slug} of slugs) {
+            const postResponse = await fetch(`${POSTS_DIR}${slug}.md`);
+            if (!postResponse.ok) continue;
+            
+            const markdown = await postResponse.text();
+            const metadata = extractMetadata(markdown);
+            
+            posts.push({
+                slug,
+                title: metadata.title || slug.replace(/-/g, ' '),
+                date: metadata.date,
+                excerpt: metadata.excerpt
+            });
+        }
+        
+        return posts;
+    } catch (error) {
+        console.error('Error loading posts:', error);
+        return [];
     }
 }
 
@@ -59,7 +124,7 @@ async function loadPostContent() {
     }
     
     try {
-        const response = await fetch(`${BASE_URL}posts/${postSlug}.md`);
+        const response = await fetch(`${POSTS_DIR}${postSlug}.md`);
         if (!response.ok) throw new Error('Post not found');
         
         const markdown = await response.text();
