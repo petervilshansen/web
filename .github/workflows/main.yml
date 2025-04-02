@@ -13,19 +13,25 @@ jobs:
       - uses: actions/checkout@v3
       - name: Generate posts.json
         run: |
+          # Create proper JSON array
+          echo "Generating posts.json..."
+          files=$(ls posts/*.md | sed 's/posts\///g' | sed 's/\.md//g')
           echo "[" > posts.json
-          ls posts/*.md | while read file; do
-            slug=$(basename "$file" .md)
-            echo "  {\"slug\": \"$slug\"}," >> posts.json
+          first=true
+          for slug in $files; do
+            if [ "$first" = false ]; then
+              echo "," >> posts.json
+            fi
+            echo "  {\"slug\": \"$slug\"}" >> posts.json
+            first=false
           done
           echo "]" >> posts.json
-          # Remove trailing comma
-          sed -i '$ s/,$//' posts.json
+          echo "Generated posts.json:"
+          cat posts.json
       - name: Commit changes
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add posts.json
-          git commit -m "Update posts index" || exit 0
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update posts index"
           git push
-          

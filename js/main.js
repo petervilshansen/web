@@ -84,29 +84,35 @@ async function loadPostList() {
 
 async function fetchPostsList() {
     try {
-        // Load the generated index
         const response = await fetch(`${BASE_URL}posts.json`);
         if (!response.ok) throw new Error('Could not load posts index');
         
-        const slugs = await response.json();
+        const postsData = await response.json();
         const posts = [];
         
-        for (const {slug} of slugs) {
-            const postResponse = await fetch(`${POSTS_DIR}${slug}.md`);
-            if (!postResponse.ok) continue;
-            
-            const markdown = await postResponse.text();
-            const metadata = extractMetadata(markdown);
-            
-            posts.push({
-                slug,
-                title: metadata.title || slug.replace(/-/g, ' '),
-                date: metadata.date,
-                excerpt: metadata.excerpt
-            });
-        }
+        // Process each post in parallel
+        await Promise.all(postsData.map(async ({slug}) => {
+            try {
+                const postResponse = await fetch(`${POSTS_DIR}${slug}.md`);
+                if (!postResponse.ok) return;
+                
+                const markdown = await postResponse.text();
+                const metadata = extractMetadata(markdown);
+                
+                posts.push({
+                    slug,
+                    title: metadata.title || slug.replace(/-/g, ' '),
+                    date: metadata.date,
+                    excerpt: metadata.excerpt || '',
+                    image: metadata.image || ''
+                });
+            } catch (error) {
+                console.error(`Error processing post ${slug}:`, error);
+            }
+        });
         
-        return posts;
+        // Sort posts by date (newest first)
+        return posts.sort((a, b) => new Date(b.date) - new Date(a.date));
     } catch (error) {
         console.error('Error loading posts:', error);
         return [];
