@@ -109,7 +109,7 @@ async function fetchPostsList() {
             } catch (error) {
                 console.error(`Error processing post ${slug}:`, error);
             }
-        });
+        }));
         
         // Sort posts by date (newest first)
         return posts.sort((a, b) => new Date(b.date) - new Date(a.date));
