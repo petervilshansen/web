@@ -121,11 +121,17 @@ header, main {
     height: auto;
 }
 
-/* Add this to remove indentation completely */
+/* Remove any custom list styling */
+.post-content ul,
+.post-content ol {
+    all: revert; /* Resets to browser defaults */
+    margin: 1em 0; /* Default margins */
+    padding-left: 40px; /* Default indentation */
+}
+
 .post-content li {
-    list-style-position: inside;
-    padding-left: 0;
-    margin-left: 0;
+    all: revert; /* Resets to browser defaults */
+    display: list-item; /* Ensures proper list behavior */
 }
 
 .post-content pre {
