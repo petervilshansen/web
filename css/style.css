@@ -121,6 +121,13 @@ header, main {
     height: auto;
 }
 
+/* Add this to remove indentation completely */
+.post-content li {
+    list-style-position: inside;
+    padding-left: 0;
+    margin-left: 0;
+}
+
 .post-content pre {
     background-color: var(--secondary-color);
     padding: 1em;
@@ -148,3 +155,4 @@ header, main {
         --site-width: 95%;
     }
 }
+
