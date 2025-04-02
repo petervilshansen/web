@@ -28,16 +28,31 @@ function extractMetadata(markdown) {
     const htmlCommentMatch = markdown.match(/<!--\s*([\s\S]*?)\s*-->/);
     if (htmlCommentMatch) {
         const frontMatter = htmlCommentMatch[1];
-        const dateMatch = frontMatter.match/date:\s*(.+)/i);
-        const excerptMatch = frontMatter.match/excerpt:\s*(.+)/i);
-        const imageMatch = frontMatter.match/image:\s*(.+)/i);
+        const dateMatch = frontMatter.match(/date:\s*(.+)/i);
+        const excerptMatch = frontMatter.match(/excerpt:\s*(.+)/i);
+        const imageMatch = frontMatter.match(/image:\s*(.+)/i);
 
         if (dateMatch) metadata.date = dateMatch[1].trim();
         if (excerptMatch) metadata.excerpt = excerptMatch[1].trim();
         if (imageMatch) metadata.image = imageMatch[1].trim();
     }
 
-    // Rest of your extraction logic...
+    // Extract title from first h1 heading
+    const titleMatch = markdown.match(/^#\s+(.+)$/m);
+    if (titleMatch) {
+        metadata.title = titleMatch[1];
+    }
+
+    // Extract excerpt from first paragraph if not in front matter
+    if (!metadata.excerpt) {
+        const contentAfterFrontMatter = markdown.replace(/<!--[\s\S]*?-->/, '');
+        const contentAfterTitle = contentAfterFrontMatter.replace(/^#\s+.+$\n/m, '');
+        const firstParagraphMatch = contentAfterTitle.match(/^([^\n]+)/m);
+        if (firstParagraphMatch) {
+            metadata.excerpt = firstParagraphMatch[1].substring(0, 160);
+        }
+    }
+
     return metadata;
 }
 
