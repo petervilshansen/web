@@ -1,6 +1,3 @@
-<!--
-date: 2023-09-01
--->
 # Welcome to My Minimal Blog
 
 This is my new personal blog hosted on GitHub Pages. I wanted something simple, clean, and easy to maintain.

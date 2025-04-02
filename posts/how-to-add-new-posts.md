@@ -1,6 +1,3 @@
-<!--
-date: 2023-05-17
--->
 # How to Add New Blog Posts
 
 1. Create a new `.md` file in the `posts` directory
