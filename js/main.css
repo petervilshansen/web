@@ -11,11 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Base URL for all links
+const BASE_URL = 'https://petervilshansen.github.io/web/';
+
 // Load and display list of posts
 async function loadPostList() {
     try {
-        // In a real implementation, you might fetch a list.json file
-        // For this example, we'll use a hardcoded list from the posts directory
         const posts = [
             { 
                 slug: 'welcome', 
@@ -33,10 +34,10 @@ async function loadPostList() {
             const postElement = document.createElement('article');
             postElement.className = 'post-card';
             postElement.innerHTML = `
-                <h3 class="post-title"><a href="?post=${post.slug}">${post.title}</a></h3>
+                <h3 class="post-title"><a href="${BASE_URL}?post=${post.slug}">${post.title}</a></h3>
                 <div class="post-date">${formatDate(post.date)}</div>
                 <p class="post-excerpt">${post.excerpt}</p>
-                <a href="?post=${post.slug}" class="read-more">Read more →</a>
+                <a href="${BASE_URL}?post=${post.slug}" class="read-more">Read more →</a>
             `;
             postList.appendChild(postElement);
         });
@@ -53,12 +54,12 @@ async function loadPostContent() {
     const postSlug = urlParams.get('post');
     
     if (!postSlug) {
-        window.location.href = '/';
+        window.location.href = BASE_URL;
         return;
     }
     
     try {
-        const response = await fetch(`posts/${postSlug}.md`);
+        const response = await fetch(`${BASE_URL}posts/${postSlug}.md`);
         if (!response.ok) throw new Error('Post not found');
         
         const markdown = await response.text();
@@ -69,9 +70,17 @@ async function loadPostContent() {
         postContent.className = 'post-content';
         postContent.innerHTML = html;
         
+        // Add back link
+        const backLink = document.createElement('a');
+        backLink.href = BASE_URL;
+        backLink.textContent = '← Back to home';
+        backLink.style.display = 'block';
+        backLink.style.marginBottom = '2rem';
+        
         // Replace the loading indicator with the actual content
         const container = document.getElementById('post-content') || document.querySelector('main');
         container.innerHTML = '';
+        container.appendChild(backLink);
         container.appendChild(postContent);
         
         // Update the page title
@@ -84,7 +93,7 @@ async function loadPostContent() {
             <div class="error">
                 <h2>Post Not Found</h2>
                 <p>The requested post could not be loaded.</p>
-                <a href="/">← Back to home</a>
+                <a href="${BASE_URL}">← Back to home</a>
             </div>
         `;
     }
