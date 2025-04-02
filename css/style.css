@@ -5,7 +5,7 @@
     --secondary-color: #f3f4f6;
     --border-color: #e5e7eb;
     --spacing: 1rem;
-    --site-width: 66%;
+    --site-width: 50%;
 }
 
 @media (prefers-color-scheme: dark) {
