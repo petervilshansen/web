@@ -1,5 +1,5 @@
 <!--
-date: 2023-09-01  # Optional (defaults to file creation date)
+date: 2023-09-01
 -->
 # Welcome to My Minimal Blog
 

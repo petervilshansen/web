@@ -1,5 +1,5 @@
 <!--
-date: 2023-05-17  # Optional (defaults to file creation date)
+date: 2023-05-17
 -->
 # How to Add New Blog Posts
 

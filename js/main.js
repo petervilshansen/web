@@ -19,12 +19,12 @@ const POSTS_DIR = `${BASE_URL}posts/`;
 function extractMetadata(markdown) {
     const metadata = {
         title: '',
-        date: new Date().toISOString().split('T')[0],
+        date: new Date().toISOString().split('T')[0], // Default to today
         excerpt: '',
         image: ''
     };
 
-    // HTML comment style front matter
+    // Try HTML comment style front matter first
     const htmlCommentMatch = markdown.match(/<!--\s*([\s\S]*?)\s*-->/);
     if (htmlCommentMatch) {
         const frontMatter = htmlCommentMatch[1];
@@ -32,28 +32,54 @@ function extractMetadata(markdown) {
         const excerptMatch = frontMatter.match(/excerpt:\s*(.+)/i);
         const imageMatch = frontMatter.match(/image:\s*(.+)/i);
 
-        if (dateMatch) metadata.date = dateMatch[1].trim();
+        if (dateMatch) metadata.date = formatDateString(dateMatch[1].trim());
         if (excerptMatch) metadata.excerpt = excerptMatch[1].trim();
         if (imageMatch) metadata.image = imageMatch[1].trim();
     }
 
-    // Extract title from first h1 heading
-    const titleMatch = markdown.match(/^#\s+(.+)$/m);
-    if (titleMatch) {
-        metadata.title = titleMatch[1];
+    // Fallback to YAML style if no HTML comments found
+    else {
+        const yamlMatch = markdown.match(/^---\s*\n([\s\S]*?)\n---/);
+        if (yamlMatch) {
+            const frontMatter = yamlMatch[1];
+            const dateMatch = frontMatter.match(/date:\s*(.+)/i);
+            if (dateMatch) metadata.date = formatDateString(dateMatch[1].trim());
+        }
     }
+
+    // Extract title from first heading
+    const titleMatch = markdown.match(/^#\s+(.+)$/m);
+    if (titleMatch) metadata.title = titleMatch[1];
 
     // Extract excerpt from first paragraph if not in front matter
     if (!metadata.excerpt) {
-        const contentAfterFrontMatter = markdown.replace(/<!--[\s\S]*?-->/, '');
-        const contentAfterTitle = contentAfterFrontMatter.replace(/^#\s+.+$\n/m, '');
-        const firstParagraphMatch = contentAfterTitle.match(/^([^\n]+)/m);
-        if (firstParagraphMatch) {
-            metadata.excerpt = firstParagraphMatch[1].substring(0, 160);
+        const content = markdown.replace(/<!--[\s\S]*?-->/, '').replace(/---[\s\S]*?---/, '');
+        const firstParagraph = content.split('\n\n').find(p => p.trim().length > 0);
+        if (firstParagraph) {
+            metadata.excerpt = firstParagraph.replace(/^#.+$/m, '').substring(0, 160).trim();
         }
     }
 
     return metadata;
+}
+
+// Helper function to ensure consistent date formatting
+function formatDateString(dateString) {
+    try {
+        // Try parsing as ISO date (YYYY-MM-DD)
+        const date = new Date(dateString);
+        if (!isNaN(date.getTime())) {
+            return date.toISOString().split('T')[0];
+        }
+        
+        // Try parsing other common formats if needed
+        // Add additional format patterns here if your dates use different formats
+        
+        // Fallback to today's date if parsing fails
+        return new Date().toISOString().split('T')[0];
+    } catch {
+        return new Date().toISOString().split('T')[0];
+    }
 }
 
 // Load and display list of posts
@@ -180,7 +206,12 @@ async function loadPostContent() {
 // Helper function to format dates
 function formatDate(dateString) {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString(undefined, options);
+    try {
+        const date = new Date(dateString);
+        return isNaN(date.getTime()) ? '' : date.toLocaleDateString(undefined, options);
+    } catch {
+        return '';
+    }
 }
 
 // Handle navigation between homepage and posts
