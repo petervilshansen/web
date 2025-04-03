@@ -28,7 +28,7 @@ When you're done implementing the Main class, export a JAR file from Eclipse, an
 
 Lastly, some quick Spigot reference links, taken directly from Dave's post:
 
-  - [[Spigot Plugin Development Page][http://www.spigotmc.org/wiki/spigot-plugin-development/]]
-  - [[Spigot API Reference][https://hub.spigotmc.org/javadocs/spigot/]]
+  - [Spigot Plugin Development Page](http://www.spigotmc.org/wiki/spigot-plugin-development/)
+  - [Spigot API Reference](https://hub.spigotmc.org/javadocs/spigot/)
 
 

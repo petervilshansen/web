@@ -148,19 +148,14 @@ body {
 ## Performance Features
 
   1. Critical CSS inlined in `<head>`
-  2. Lazy loading for images:
-  ```![Alt text](image.jpg){loading=lazy}```
+  2. Lazy loading for images: `![Alt text](image.jpg){loading=lazy}`
   3. Client-side caching of fetched posts
   4. Minimal dependencies (only marked.js for Markdown parsing)
   
 ## Deployment Workflow
 
   1. Author writes new post in Markdown
-  2. Git push triggers GitHub Actions:
-  ```graph LR
-  A[Push Markdown] --> B[Generate posts.json]
-  B --> C[Deploy to GitHub Pages]
-  ```
+  2. Git push triggers GitHub Actions: `A[Push Markdown] --> B[Generate posts.json] --> C[Deploy to GitHub Pages]`
   3. GitHub Pages serves the static assets
   4. Browser fetches and renders content dynamically
 
