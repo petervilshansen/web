@@ -155,3 +155,35 @@ header, main {
         --site-width: 95%;
     }
 }
+
+/* Compact layout */
+
+/* Add to your existing CSS */
+.post-list {
+  gap: 0.8rem; /* Reduced from 1.5rem */
+}
+
+.post-card {
+  padding: 0.8rem; /* Reduced from 1rem */
+  margin-bottom: 0.5rem;
+}
+
+.post-title {
+  font-size: 1.1rem; /* Smaller heading */
+  margin-bottom: 0.3rem;
+}
+
+.post-date {
+  font-size: 0.75rem; /* Smaller date */
+  margin-bottom: 0.2rem;
+}
+
+.post-excerpt {
+  font-size: 0.9rem; /* Smaller excerpt */
+  line-height: 1.4;
+  margin-bottom: 0.3rem;
+}
+
+.read-more {
+  font-size: 0.8rem;
+}
