@@ -153,40 +153,51 @@ async function fetchPostsList() {
 }
 
 // Load and render a single post
+// Load and render a single post
 async function loadPostContent() {
     const urlParams = new URLSearchParams(window.location.search);
     const postSlug = urlParams.get('post');
-    
+
     if (!postSlug) {
         window.location.href = BASE_URL;
         return;
     }
-    
+
     try {
         const response = await fetch(`${POSTS_DIR}${postSlug}.md`);
         if (!response.ok) throw new Error('Post not found');
-        
+
         const markdown = await response.text();
         const html = marked.parse(markdown);
-        
+
         // Create the post content structure
         const postContent = document.createElement('article');
         postContent.className = 'post-content';
         postContent.innerHTML = html;
-        
+
         // Add back link
         const backLink = document.createElement('a');
         backLink.href = BASE_URL;
         backLink.textContent = '← Back to home';
         backLink.style.display = 'block';
         backLink.style.marginBottom = '2rem';
-        
+
+        // Add footer
+        const footer = document.createElement('footer');
+        footer.innerHTML = '&copy; Peter Vils Hansen. All rights reserved.';
+        footer.style.marginTop = '2rem';
+        footer.style.borderTop = '1px solid #374751';
+        footer.style.paddingTop = '1rem';
+        footer.style.fontSize = '0.875rem';
+        footer.style.color = '#9e9e9e';
+
         // Replace the loading indicator with the actual content
         const container = document.getElementById('post-content') || document.querySelector('main');
         container.innerHTML = '';
         container.appendChild(backLink);
         container.appendChild(postContent);
-        
+        container.appendChild(footer); // Append footer
+
         // Update the page title
         const postTitle = postContent.querySelector('h1')?.textContent || 'Blog Post';
         document.title = `${postTitle} | Minimal Blog`;
