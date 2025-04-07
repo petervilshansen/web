@@ -1,7 +1,8 @@
-# Sådan ordner du let rodet i din digitale billedsamling
+# Kæmper du med et digitalt billedkaos?
 
 <!--
 date: 2019-09-22
+excerpt: Denne guide tilbyder en simpel løsning til at rydde op i din rodede billedsamling. Lær hvordan du nemt fjerner dubletter og organiserer tusindvis af billeder ved hjælp af Google Photos og Google Takeout. Slip for at bekymre dig om tabte minder og få styr på dine digitale billeder én gang for alle.
 -->
 
 Hvis du er som mig, kan du lide at tage billeder. Mange billeder. Men du er knap så skarp til at få organiseret alle billederne, og gennem årene har billedsamlingen hobet sig op fordelt på flere forskellige enheder: telefonen, nogle gamle cd'er eller dvd'er, måske en ekstern harddisk og et par USB-pinde.

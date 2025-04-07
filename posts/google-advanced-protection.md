@@ -1,7 +1,9 @@
-# Google Advanced Protection Program
+# Google Advanced Protection: Ekstra sikkerhed til din konto
 
 <!--
 date: 2019-02-18
+excerpt: Google Advanced Protection Program tilbyder øget sikkerhed til brugere med højrisiko Google-konti, ved at kræve fysiske sikkerhedsnøgler, begrænse adgangen for tredjepartsprogrammer og skærpe kravene til kontogendannelse. Det er en stærkere beskyttelse end standard sikkerhedsforanstaltninger, men kommer med begrænsninger.
+
 -->
 
 Efterhånden som vi lægger flere og flere data online, stiger vigtigheden af at holde disse data sikret imod uretmæssig adgang. Rigtig mange mennesker (mig selv inklusive) har en personlig Google-konto, og anvender denne til at gemme og behandle store mængder personlige data.

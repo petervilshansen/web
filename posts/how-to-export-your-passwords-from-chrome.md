@@ -1,7 +1,9 @@
-# How to: Export Your Passwords From Chrome
+# Safeguard Your Passwords: Exporting from Chrome for Secure Backup
 
 <!--
 date: 2019-08-18
+excerpt: This guide details how to export saved passwords from Google Chrome to prevent losing access if your Google account becomes inaccessible. It provides step-by-step instructions for exporting passwords as a CSV file, encrypting it with a strong password, and securely storing it on an external drive. The guide emphasizes the importance of securely deleting the unencrypted file and recommends using Google Takeout for backing up other Google data.
+
 -->
 
 Passwords... the bane of our online existence. We all wish they'd go away, but there's no sign of that happening anytime soon. So what do most people do when their browser asks them if they'd like the browser to remember it for them? They say yes, of course.

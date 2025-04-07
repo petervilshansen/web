@@ -1,8 +1,10 @@
 <!--
 	date: 2019-09-22
+	excerpt: Diceware er en metode til at generere stærke kodesætninger ved hjælp af terninger og en ordliste. Metoden er nem at bruge og giver kodesætninger, der er nemmere at huske end traditionelle kodeord. Artiklen beskriver, hvordan man bruger Diceware-metoden med en dansk ordliste og et online terningkastværktøj.
+
 -->
 
-# Diceware kodesætninger på dansk
+# Diceware på dansk: Nemme og sikre kodeord
 
 Der findes kodeord, og så findes der kodesætninger. Et kodeord er typisk ét ord, nogle gange blandet med tal og specialtegn. Et eksempel på et kodeord kunne være g4$F=x,7&a%CJDsx. En kodesætning er flere ord, ofte uden tal og specialtegn, men med mellemrum til at adskille de enkelte ord. Et eksempel på en kodesætning kunne være Til en god bøf hører en god Chianti.
 
