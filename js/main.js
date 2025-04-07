@@ -184,12 +184,29 @@ async function loadPostContent() {
 
         // Add footer
         const footer = document.createElement('footer');
-        footer.innerHTML = '&copy; Peter Vils Hansen. All rights reserved.';
-        footer.style.marginTop = '2rem';
-        footer.style.borderTop = '1px solid #374751';
-        footer.style.paddingTop = '1rem';
-        footer.style.fontSize = '0.875rem';
-        footer.style.color = '#9e9e9e';
+        footer.className = 'footer'; // Add the 'footer' class
+
+        // Create the div for flex layout within the footer
+        const footerDiv = document.createElement('div');
+        footerDiv.style.display = 'flex';
+        footerDiv.style.justifyContent = 'space-between';
+        footerDiv.style.alignItems = 'center';
+
+        // Create the copyright section
+        const copyrightDiv = document.createElement('div');
+        copyrightDiv.innerHTML = `&copy; <span id="year"></span> Peter Vils Hansen. All rights reserved.`;
+
+        // Create the back to home link for the footer
+        const footerBackLink = document.createElement('a');
+        footerBackLink.href = BASE_URL;
+        footerBackLink.textContent = 'Back to home →';
+
+        // Append elements to the footer div
+        footerDiv.appendChild(copyrightDiv);
+        footerDiv.appendChild(footerBackLink);
+
+        // Append the footer div to the footer
+        footer.appendChild(footerDiv);
 
         // Replace the loading indicator with the actual content
         const container = document.getElementById('post-content') || document.querySelector('main');
@@ -201,6 +218,10 @@ async function loadPostContent() {
         // Update the page title
         const postTitle = postContent.querySelector('h1')?.textContent || 'Blog Post';
         document.title = `${postTitle} | Minimal Blog`;
+
+        // Set the year in the footer after it has been added to the DOM
+        document.getElementById('year').textContent = new Date().getFullYear();
+
     } catch (error) {
         console.error('Error loading post:', error);
         const container = document.getElementById('post-content') || document.querySelector('main');
