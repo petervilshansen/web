@@ -28,6 +28,8 @@ Lige i hælene på 1Password kommer Bitwarden, som jeg også anvendte i lang tid
 
 Her ses aktiviteten på server-delen af Bitwarden pr. d.d.:
 
+![Aktiviteten på server-delen af Bitwarden](img/bitwarden-activity.png)
+
 kspearrin er top contributor med 2.298 commits, mens nummer to på listen–altså den udvikler med næstflest commits–har sølle 21 commits under bæltet. Hvis denne kspearrin skulle blive sat ud af spillet på den ene eller den anden måde, er jeg bange for, at Bitwarden meget hurtigt er fortid, og det er en risiko jeg ikke ønsker at løbe med den software, der skal beskytte samtlige af mine kodeord.
 
-Derfor falder mit personlige valg på 1Password, som har været i branchen mere end 10 år, og tæller væsentligt mere end én udvikler.
+Derfor falder mit personlige valg på 1Password, som har været i branchen mere end 10 år, og tæller [væsentligt mere end én udvikler](https://1password.com/company/).

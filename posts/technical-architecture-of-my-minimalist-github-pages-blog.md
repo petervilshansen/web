@@ -40,7 +40,7 @@ excerpt: "Brief description of post"
 
 ### 2. Automated Index Generation
 
-A GitHub Action generates posts.json whenever new Markdown files are added:
+A GitHub Action generates `posts.json` whenever new Markdown files are added:
 
 ```name: Update Post Index
 on:
