@@ -28,7 +28,7 @@ Du kan selv læse flere af Googles egne råd til beskyttelse af din Google-konto
 
 Hvis man anvender alle ovenstående råd, er man nået langt i at beskytte sin Google-konto, og er sikkert mere modstandsdygtig overfor angreb end (langt) de fleste andre brugere.
 
-Hvis man alligevel ønsker gå et skridt videre, selv om det vil ske på bekostning af noget funktionalitet, tilbyder Google alle brugere en ekstra pansring igennem deres [[Google Advanced Protection Program.][https://landing.google.com/advancedprotection/]]
+Hvis man alligevel ønsker gå et skridt videre, selv om det vil ske på bekostning af noget funktionalitet, tilbyder Google alle brugere en ekstra pansring igennem deres [Google Advanced Protection Program](https://landing.google.com/advancedprotection/).
 
 Google Advanced Protection giver først og fremmest tre ting udover den stærke beskyttelse, alle 
 Google-konti i forvejen beskyttes med:
