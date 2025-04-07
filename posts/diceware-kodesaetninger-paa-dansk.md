@@ -12,7 +12,7 @@ Korrekt konstrueret (og hvordan dettes gøres, kommer vi tilbage til nedenfor) v
 
 Der findes mange metodikker til fremstilling af stærke kodesætninger. Et grundlæggende krav til alle metodikker er, at de resulterer i en kodesætning med så høj entropi som muligt uden at kodesætningen bliver umulig at huske.
 
-En relativt kendt metodik er kendt som Diceware. Til at konstruere en kodesætning med Diceware, skal man bruge to ting:
+En relativt kendt metodik er kendt som [Diceware](http://world.std.com/~reinhold/diceware.html). Til at konstruere en kodesætning med Diceware, skal man bruge to ting:
 
 	1. Fem terninger (dog kan man nøjes med en, men det er nemmere med fem)
 	2. En Diceware-ordliste. Dette er en liste med ord, hvor der ud for hvert ord står et tal, der kan repræsenteres med terning-værdier. Så det første ord har nummer 11111, det næste har nummer 11112, …, 11116, 11121, 11122, …, 66666. I alt 65 = 7776 forskellige ord.
