@@ -143,6 +143,13 @@ header, main {
     width: 100%;
 }
 
+/* Add the new CSS rule for the footer's inner div */
+.footer > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 @media (max-width: 768px) {
     :root {
         --spacing: 0.75rem;
