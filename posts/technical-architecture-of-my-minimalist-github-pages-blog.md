@@ -1,3 +1,7 @@
+<!--
+	excerpt: This is the excerpt. 
+-->
+
 # Technical Architecture of My Minimalist GitHub Pages Blog
 
 ## Overview
