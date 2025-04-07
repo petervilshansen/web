@@ -13,4 +13,4 @@ Jeg gør det ikke for at vise, hvor dygtig en fotograf, jeg selv synes jeg er, m
 
 Silkeborg og hele søhøjlandet har ry for at være et af de smukkeste steder i Danmark, og efter jeg selv flyttede hertil i 2007, har jeg haft mulighed for at se mange af stederne ved selvsyn, og kan skrive under på, at søhøjlandet er et af de smukkeste områder i Danmark.
 
-Hvis du nu skulle have fået lyst til at besøge Silkeborg på din næste sommerferie, er Visit Silkeborg et godt sted at starte som vordende turist.
+Hvis du nu skulle have fået lyst til at besøge Silkeborg på din næste sommerferie, er [Visit Silkeborg](https://visitsilkeborg.dk) et godt sted at starte som vordende turist.
