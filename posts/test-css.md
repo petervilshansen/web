@@ -6,7 +6,7 @@
 
 This is regular text.
 
-<div class="highlight-box">This is the content you want to highlight. It will be styled according to the CSS rules you defined for the `.highlight-box` class. You can include multiple lines of text, and it will wrap automatically.</div>
+<div class="highlight-box">**Highlighted content.** This is the content you want to highlight. It will be styled according to the CSS rules you defined for the `.highlight-box` class. You can include multiple lines of text, and it will wrap automatically.</div>
 
 More regular text follows.
 
