@@ -16,6 +16,12 @@
         --secondary-color: #1f2937;
         --border-color: #374151;
     }
+
+    .highlight-box {
+        background-color: #1e3a8a; /* A darker blue for dark mode */
+        color: #f0f8ff; /* Light text on dark blue */
+        border: 1px solid #4299e1; /* A lighter blue for the dark mode border */
+    }
 }
 
 body {
@@ -148,6 +154,18 @@ header, main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.highlight-box {
+    background-color: #f0f8ff; /* Alice Blue - a very light blue */
+    color: var(--text-color); /* Use your default text color for readability */
+    border: 1px solid #add8e6; /* Light Blue - a slightly darker shade for the border */
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem; /* Add some spacing below */
+    overflow-x: auto; /* If content overflows horizontally, add a scrollbar */
+    font-family: monospace, sans-serif; /* Optional: Use a monospace font if you want it to stand out more */
+    white-space: pre-wrap; /* Preserve whitespace and wrap text */
 }
 
 @media (max-width: 768px) {
