@@ -164,8 +164,10 @@ header, main {
     padding: 1rem;
     margin-bottom: 1rem; /* Add some spacing below */
     overflow-x: auto; /* If content overflows horizontally, add a scrollbar */
-    font-family: monospace, sans-serif; /* Optional: Use a monospace font if you want it to stand out more */
+    font-family: inherit; /* 1. Use the same font as the body */
     white-space: pre-wrap; /* Preserve whitespace and wrap text */
+    margin-left: 10%; /* 2. Increase left margin */
+    margin-right: 10%; /* 2. Increase right margin */
 }
 
 @media (max-width: 768px) {
