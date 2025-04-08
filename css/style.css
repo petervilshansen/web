@@ -186,6 +186,7 @@ header, main {
     white-space: pre-wrap; /* Preserve whitespace and wrap text */
     margin-left: 10%; /* Left margin to center */
     margin-right: 10%; /* Right margin to center */
+    border-top-width: 1px; /* Make the top border the same width as the sides/bottom */
 }
 
 /* Dark mode adjustments for the highlight box */
@@ -194,6 +195,7 @@ header, main {
         background-color: #1e3a8a; /* Darker blue background in dark mode */
         color: #f0f8ff; /* Light text on dark blue in dark mode */
         border: 1px solid #4299e1; /* Lighter blue border in dark mode */
+        border-top-width: 1px; /* Make the top border the same width in dark mode */
     }
 }
 
