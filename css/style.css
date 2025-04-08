@@ -1,184 +1,230 @@
+/* Root variables for consistent theming */
 :root {
-    --text-color: #333;
-    --bg-color: #fff;
-    --primary-color: #2563eb;
-    --secondary-color: #f3f4f6;
-    --border-color: #e5e7eb;
-    --spacing: 1rem;
-    --site-width: 50%;
+    --text-color: #333; /* Default text color (dark gray) */
+    --bg-color: #fff; /* Default background color (white) */
+    --primary-color: #2563eb; /* Primary interactive color (blue) */
+    --secondary-color: #f3f4f6; /* Secondary background/accent color (light gray) */
+    --border-color: #e5e7eb; /* Default border color (light gray) */
+    --spacing: 1rem; /* Standard spacing unit */
+    --site-width: 50%; /* Maximum width of the main content area */
 }
 
+/* Dark mode specific variables, overriding defaults */
 @media (prefers-color-scheme: dark) {
     :root {
-        --text-color: #f3f4f6;
-        --bg-color: #111827;
-        --primary-color: #3b82f6;
-        --secondary-color: #1f2937;
-        --border-color: #374151;
-    }
-
-    .highlight-box {
-        background-color: #1e3a8a; /* A darker blue for dark mode */
-        color: #f0f8ff; /* Light text on dark blue */
-        border: 1px solid #4299e1; /* A lighter blue for the dark mode border */
+        --text-color: #f3f4f6; /* Text color in dark mode (light gray) */
+        --bg-color: #111827; /* Background color in dark mode (dark gray) */
+        --primary-color: #3b82f6; /* Primary interactive color in dark mode (light blue) */
+        --secondary-color: #1f2937; /* Secondary background/accent color in dark mode (darker gray) */
+        --border-color: #374151; /* Border color in dark mode (darker gray) */
     }
 }
 
+/* Base body styles for overall appearance */
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; /* Primary font with system fallbacks */
+    line-height: 1.6; /* Standard line height for readability */
+    color: var(--text-color); /* Use text color variable */
+    background-color: var(--bg-color); /* Use background color variable */
+    display: flex; /* Enable flexbox for centering content */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    min-height: 100vh; /* Ensure body takes at least the full viewport height */
+    margin: 0; /* Remove default body margins */
 }
 
+/* Container to control the site's maximum width */
 .site-container {
-    width: var(--site-width);
-    padding: var(--spacing);
+    width: var(--site-width); /* Use site width variable */
+    padding: var(--spacing); /* Use standard spacing for padding */
 }
 
+/* Styles for header and main content areas */
 header, main {
-    width: 100%;
-    margin-bottom: var(--spacing);
+    width: 100%; /* Take full width of the container */
+    margin-bottom: var(--spacing); /* Add spacing below header and main */
 }
 
+/* Header specific styles */
 .header {
-    padding: var(--spacing) 0;
-    border-bottom: 1px solid var(--border-color);
+    padding: var(--spacing) 0; /* Vertical padding */
+    border-bottom: 1px solid var(--border-color); /* Bottom border for visual separation */
 }
 
+/* Blog title styles */
 .blog-title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-size: 1.8rem; /* Larger font size for the title */
+    font-weight: 600; /* Semi-bold font weight */
+    margin-bottom: 0.5rem; /* Spacing below the title */
 }
 
+/* Link style for the blog title (remove default link styling) */
 .blog-title a {
-    color: inherit;
-    text-decoration: none;
+    color: inherit; /* Inherit text color from parent */
+    text-decoration: none; /* Remove underlines */
 }
 
+/* Navigation styles */
 .nav {
-    display: flex;
-    gap: 1rem;
+    display: flex; /* Arrange links in a row */
+    gap: 1rem; /* Spacing between navigation links */
 }
 
+/* Navigation link styles */
 .nav a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-weight: 500;
+    color: var(--text-color); /* Use text color variable */
+    text-decoration: none; /* Remove underlines */
+    font-weight: 500; /* Medium font weight */
 }
 
+/* Hover effect for navigation links */
 .nav a:hover {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Change color on hover */
 }
 
+/* Introductory paragraph styles */
 .intro-paragraph {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-    color: var(--text-color);
+    font-size: 1.1rem; /* Slightly larger font size */
+    line-height: 1.7; /* Increased line height for readability */
+    margin-bottom: 2rem; /* Larger spacing below the intro */
+    color: var(--text-color); /* Use text color variable */
 }
 
+/* Container for the list of blog posts */
 .post-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing);
+    display: flex; /* Arrange posts in a column */
+    flex-direction: column; /* Stack posts vertically */
+    gap: var(--spacing); /* Spacing between posts */
 }
 
+/* Styles for individual post cards */
 .post-card {
-    border: 1px solid var(--border-color);
-    border-radius: 0.5rem;
-    padding: var(--spacing);
+    border: 1px solid var(--border-color); /* Border around each post */
+    border-radius: 0.5rem; /* Rounded corners */
+    padding: var(--spacing); /* Padding inside the post card */
 }
 
+/* Title of each post */
 .post-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-size: 1.25rem; /* Slightly larger font size */
+    font-weight: 600; /* Semi-bold font weight */
+    margin-bottom: 0.5rem; /* Spacing below the title */
 }
 
+/* Link style for the post title */
 .post-title a {
-    color: inherit;
-    text-decoration: none;
+    color: inherit; /* Inherit text color */
+    text-decoration: none; /* Remove underlines */
 }
 
+/* Hover effect for the post title link */
 .post-title a:hover {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Change color on hover */
 }
 
+/* Date of the post */
 .post-date {
-    color: #6b7280;
-    font-size: 0.875rem;
-    margin-bottom: 0.5rem;
+    color: #6b7280; /* Secondary text color (gray) */
+    font-size: 0.875rem; /* Smaller font size */
+    margin-bottom: 0.5rem; /* Spacing below the date */
 }
 
+/* Styles for images within post content */
 .post-content img {
-    max-width: 100%;
-    height: auto;
+    max-width: 100%; /* Ensure images don't exceed container width */
+    height: auto; /* Maintain aspect ratio */
 }
 
-/* Remove any custom list styling */
+/* Reset default list styling within post content */
 .post-content ul,
 .post-content ol {
-    all: revert; /* Resets to browser defaults */
-    margin: 1em 0; /* Default margins */
-    padding-left: 40px; /* Default indentation */
+    all: revert; /* Reset all styles to browser defaults */
+    margin: 1em 0; /* Apply default list margins */
+    padding-left: 40px; /* Apply default list indentation */
 }
 
+/* Ensure list items display correctly */
 .post-content li {
-    all: revert; /* Resets to browser defaults */
-    display: list-item; /* Ensures proper list behavior */
+    all: revert; /* Reset all styles */
+    display: list-item; /* Set to default list item display */
 }
 
+/* Styles for preformatted code blocks within post content */
 .post-content pre {
-    background-color: var(--secondary-color);
-    padding: 1em;
-    border-radius: 0.5em;
-    overflow-x: auto;
+    background-color: var(--secondary-color); /* Use secondary background color */
+    padding: 1em; /* Padding inside the code block */
+    border-radius: 0.5em; /* Rounded corners */
+    overflow-x: auto; /* Enable horizontal scrolling for long code lines */
 }
 
+/* Footer styles */
 .footer {
-    padding: var(--spacing) 0;
-    border-top: 1px solid var(--border-color);
-    font-size: 0.875rem;
-    color: #6b7280;
-    width: 100%;
+    padding: var(--spacing) 0; /* Vertical padding */
+    border-top: 1px solid var(--border-color); /* Top border for separation */
+    font-size: 0.875rem; /* Smaller font size */
+    color: #6b7280; /* Secondary text color (gray) */
+    width: 100%; /* Take full width of the container */
 }
 
-/* Add the new CSS rule for the footer's inner div */
+/* Flex container for footer content to align items */
 .footer > div {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between; /* Distribute space between child elements */
+    align-items: center; /* Vertically align items in the center */
 }
 
+/* Highlight box style for emphasized content */
 .highlight-box {
-    background-color: #f0f8ff; /* Alice Blue - a very light blue */
-    color: var(--text-color); /* Use your default text color for readability */
-    border: 1px solid #add8e6; /* Light Blue - a slightly darker shade for the border */
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin-bottom: 1rem; /* Add some spacing below */
-    overflow-x: auto; /* If content overflows horizontally, add a scrollbar */
-    font-family: inherit; /* 1. Use the same font as the body */
+    background-color: #f0f8ff; /* Very light blue background */
+    color: var(--text-color); /* Use default text color */
+    border: 1px solid #add8e6; /* Light blue border */
+    border-radius: 0.5rem; /* Rounded corners */
+    padding: 1rem; /* Padding inside the box */
+    margin-bottom: 1rem; /* Spacing below the box */
+    overflow-x: auto; /* Enable horizontal scrolling if content overflows */
+    font-family: inherit; /* Use the same font as the body */
     white-space: pre-wrap; /* Preserve whitespace and wrap text */
-    margin-left: 10%; /* 2. Increase left margin */
-    margin-right: 10%; /* 2. Increase right margin */
+    margin-left: 10%; /* Left margin to center */
+    margin-right: 10%; /* Right margin to center */
 }
 
-@media (max-width: 768px) {
-    :root {
-        --spacing: 0.75rem;
-        --site-width: 85%;
+/* Dark mode adjustments for the highlight box */
+@media (prefers-color-scheme: dark) {
+    .highlight-box {
+        background-color: #1e3a8a; /* Darker blue background in dark mode */
+        color: #f0f8ff; /* Light text on dark blue in dark mode */
+        border: 1px solid #4299e1; /* Lighter blue border in dark mode */
     }
 }
 
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    :root {
+        --spacing: 0.75rem; /* Reduce spacing on smaller screens */
+        --site-width: 85%; /* Increase site width on smaller screens */
+    }
+
+    .nav {
+        flex-direction: column; /* Stack navigation links vertically on smaller screens */
+        align-items: flex-start; /* Align navigation links to the left */
+    }
+}
+
+/* Further adjustments for even smaller screens */
 @media (max-width: 480px) {
     :root {
-        --site-width: 95%;
+        --site-width: 95%; /* Further increase site width on very small screens */
+    }
+
+    .blog-title {
+        font-size: 1.5rem; /* Slightly smaller title on very small screens */
+    }
+
+    .intro-paragraph {
+        font-size: 1rem; /* Slightly smaller intro text */
+    }
+
+    .post-title {
+        font-size: 1.1rem; /* Slightly smaller post title */
     }
 }
