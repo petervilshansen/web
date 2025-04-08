@@ -1,5 +1,4 @@
 <!--
-	date: 2019-02-17
 	excerpt: Her tester vi forskellige klasser i CSS-filen for dette site.
 -->
 
