@@ -8,6 +8,10 @@
     --spacing: 1rem; /* Standard spacing unit */
     --site-width: 50%; /* Maximum width of the main content area */
     --shadow-color: rgba(0, 0, 0, 0.1); /* Subtle shadow color */
+    --highlight-bg-light: #f0f8ff; /* Very light blue for highlight box (light mode) */
+    --highlight-bg-dark: #1e3a8a; /* Darker blue for highlight box (dark mode) */
+    --highlight-border-light: #add8e6; /* Light blue border for highlight box (light mode) */
+    --highlight-border-dark: #4299e1; /* Lighter blue border for highlight box (dark mode) */
 }
 
 /* Dark mode specific variables, overriding defaults */
@@ -182,9 +186,9 @@ header, main {
 
 /* Highlight box style for emphasized content */
 .highlight-box {
-    background-color: #f0f8ff; /* Very light blue background */
+    background-color: var(--highlight-bg-light); /* Use light mode background color */
     color: var(--text-color); /* Use default text color */
-    border: 1px solid #add8e6; /* Light blue border */
+    border: 1px solid var(--highlight-border-light); /* Use light mode border color */
     border-radius: 0.5rem; /* Rounded corners */
     padding: 1rem; /* Padding inside the box */
     margin-bottom: 1rem; /* Spacing below the box */
@@ -199,9 +203,9 @@ header, main {
 /* Dark mode adjustments for the highlight box */
 @media (prefers-color-scheme: dark) {
     .highlight-box {
-        background-color: #1e3a8a; /* Darker blue background in dark mode */
+        background-color: var(--highlight-bg-dark); /* Use dark mode background color */
         color: #f0f8ff; /* Light text on dark blue in dark mode */
-        border: 1px solid #4299e1; /* Lighter blue border in dark mode */
+        border: 1px solid var(--highlight-border-dark); /* Use dark mode border color */
         border-top-width: 1px; /* Make the top border the same width in dark mode */
     }
 }
