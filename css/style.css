@@ -16,6 +16,10 @@
     --code-bg-dark: #272822;
     --code-border-light: #eee;
     --code-border-dark: #49483e;
+    --title-font-size: 2.2rem; /* Larger base font size for title */
+    --title-font-weight: 700; /* Bold font weight for title */
+    --title-color: var(--primary-color); /* Use primary color for title */
+    --title-hover-color: #3d69a8; /* Darker shade for hover effect */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,6 +30,8 @@
         --secondary-color: #1f2937;
         --border-color: #374151;
         --shadow-color: rgba(255, 255, 255, 0.1);
+        --title-color: var(--primary-color); /* Keep primary color in dark mode */
+        --title-hover-color: #a7c9f7; /* Lighter shade for hover in dark mode */
     }
 }
 
@@ -34,47 +40,59 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
-    display: flex; /* Keep flex for vertical centering */
+    display: flex;
     flex-direction: column;
-    align-items: center; /* Keep flex for vertical centering */
+    align-items: center;
     min-height: 100vh;
     margin: 0;
 }
 
-/* Style the main container directly */
 main.site-container {
-    width: var(--site-width); /* Apply width here */
-    max-width: var(--site-width); /* Apply max-width here */
+    width: var(--site-width);
+    max-width: var(--site-width);
     padding: var(--spacing);
-    margin-left: auto; /* Center the main container */
-    margin-right: auto; /* Center the main container */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 header.header {
-    width: 100%; /* 100% of main.site-container */
-    margin-bottom: var(--spacing);
+    width: 100%;
+    margin-bottom: calc(var(--spacing) * 1.5); /* Increase spacing below header */
+    display: flex; /* Enable flexbox for centering title */
+    justify-content: center; /* Center the title horizontally */
+    padding: calc(var(--spacing) * 1.5) 0; /* Increase vertical padding */
+    border-bottom: 2px solid var(--border-color); /* Make the border more prominent */
 }
 
 .header .container {
-    /* If you have other elements inside the header container that need specific width, style them here */
-    width: 100%;
+    width: auto; /* Adjust container width to content */
+    text-align: center; /* Center text within the container (redundant with header flex but good for fallback) */
 }
 
 .blog-title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
+    font-size: var(--title-font-size);
+    font-weight: var(--title-font-weight);
+    margin-bottom: 0; /* Remove default bottom margin */
+    color: var(--title-color);
+    letter-spacing: -0.02em; /* Slightly reduce letter spacing for a cleaner look */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Subtle text shadow */
 }
 
 .blog-title a {
     color: inherit;
     text-decoration: none;
+    transition: color 0.3s ease-in-out; /* Smooth color transition on hover */
+}
+
+.blog-title a:hover {
+    color: var(--title-hover-color);
 }
 
 .nav {
     display: flex;
     gap: 1rem;
+    justify-content: center; /* Center navigation links if present */
+    margin-top: var(--spacing); /* Add some space between title and nav */
 }
 
 .nav a {
@@ -92,13 +110,14 @@ header.header {
     line-height: 1.7;
     margin-bottom: 2rem;
     color: var(--text-color);
+    text-align: center; /* Center the intro paragraph as well */
 }
 
 #post-list.post-list {
     display: flex;
     flex-direction: column;
     gap: var(--spacing);
-    width: 100%; /* Ensure post list takes full width of main container */
+    width: 100%;
 }
 
 .post-card {
@@ -174,13 +193,12 @@ footer.footer {
     border-top: 1px solid var(--border-color);
     font-size: 0.875rem;
     color: #6b7280;
-    width: 100%; /* 100% of main.site-container */
+    width: 100%;
+    text-align: center; /* Center footer text */
 }
 
 .footer > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: block; /* Ensure content is stacked in footer */
 }
 
 .highlight-box {
@@ -193,7 +211,7 @@ footer.footer {
     overflow-x: auto;
     font-family: inherit;
     white-space: pre-wrap;
-    width: 95%; /* 95% of main.site-container */
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
     border-top-width: 1px;
@@ -205,7 +223,7 @@ footer.footer {
         color: #f0f8ff;
         border: 1px solid var(--highlight-border-dark);
         border-top-width: 1px;
-        width: 95%; /* 95% of main.site-container */
+        width: 95%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -215,28 +233,23 @@ footer.footer {
     :root {
         --spacing: 0.75rem;
         --site-width: 85%;
+        --title-font-size: 2rem; /* Adjust title size on smaller screens */
     }
 
     .nav {
         flex-direction: column;
         align-items: flex-start;
+        margin-top: var(--spacing); /* Maintain spacing */
+    }
+
+    .intro-paragraph {
+        text-align: left; /* Align intro left on smaller screens for better flow */
     }
 }
 
 @media (max-width: 480px) {
     :root {
         --site-width: 95%;
-    }
-
-    .blog-title {
-        font-size: 1.5rem;
-    }
-
-    .intro-paragraph {
-        font-size: 1rem;
-    }
-
-    .post-title {
-        font-size: 1.1rem;
+        --title-font-size: 1.8rem; /* Adjust title size further */
     }
 }
