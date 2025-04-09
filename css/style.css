@@ -149,8 +149,7 @@ header.header {
     margin-bottom: 0.5rem;
 }
 
-.post-content img,
-.page-content img {
+.post-content img {
     max-width: 100%;
     height: auto;
     border-radius: 0.25rem;
@@ -161,22 +160,18 @@ header.header {
 }
 
 .post-content ul,
-.post-content ol,
-.page-content ul,
-.page-content ol {
+.post-content ol {
     all: revert;
     margin: 1em 0;
     padding-left: 40px;
 }
 
-.post-content li,
-.page-content li {
+.post-content li {
     all: revert;
     display: list-item;
 }
 
-.post-content pre,
-.page-content pre {
+.post-content pre {
     background-color: var(--code-bg-light);
     color: #24292e;
     padding: 1em;
@@ -186,8 +181,7 @@ header.header {
 }
 
 @media (prefers-color-scheme: dark) {
-    .post-content pre,
-	.page-content pre  {
+    .post-content pre {
         background-color: var(--code-bg-dark);
         color: #f8f8f2;
         border: 1px solid var(--code-border-dark);

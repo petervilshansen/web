@@ -3,25 +3,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
     
-	const urlParams = new URLSearchParams(window.location.search);
-	
     // Check if we're on the homepage or a post page
     if (document.getElementById('post-list')) {
-		alert(1);
-	    loadPostList();
-    } else if (document.getElementById('post-content') && urlParams.entries().next().value[0] == 'post') {
-        alert(2);
-		loadPostContent();
-    } else {
-		alert(3);
-		loadPageContent();
-	}
+        loadPostList();
+    } else if (document.getElementById('post-content')) {
+        loadPostContent();
+    }
 });
 
 // Base URL for all links
 const BASE_URL = 'https://petervilshansen.github.io/web/';
 const POSTS_DIR = `${BASE_URL}posts/`;
-const PAGES_DIR = `${BASE_URL}pages/`;
 
 // Function to extract metadata from Markdown content
 function extractMetadata(markdown) {
@@ -161,6 +153,7 @@ async function fetchPostsList() {
 }
 
 // Load and render a single post
+// Load and render a single post
 async function loadPostContent() {
     const urlParams = new URLSearchParams(window.location.search);
     const postSlug = urlParams.get('post');
@@ -242,88 +235,6 @@ async function loadPostContent() {
     }
 }
 
-// Load and render a single page
-async function loadPageContent() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const pageSlug = urlParams.get('page');
-
-    if (!pageSlug) {
-        window.location.href = BASE_URL;
-        return;
-    }
-
-    try {
-        const response = await fetch(`${PAGES_DIR}${pageSlug}.md`);
-        if (!response.ok) throw new Error('Page not found');
-
-        const markdown = await response.text();
-        const html = marked.parse(markdown);
-
-        // Create the post content structure
-        const postContent = document.createElement('article');
-        postContent.className = 'page-content';
-        postContent.innerHTML = html;
-
-        // Add back link
-        const backLink = document.createElement('a');
-        backLink.href = BASE_URL;
-        backLink.textContent = '← Back to home';
-        backLink.style.display = 'block';
-        backLink.style.marginBottom = '2rem';
-
-        // Add footer
-        const footer = document.createElement('footer');
-        footer.className = 'footer'; // Add the 'footer' class
-
-        // Create the div for flex layout within the footer
-        const footerDiv = document.createElement('div');
-        footerDiv.style.display = 'flex';
-        footerDiv.style.justifyContent = 'space-between';
-        footerDiv.style.alignItems = 'center';
-
-        // Create the copyright section
-        const copyrightDiv = document.createElement('div');
-        copyrightDiv.innerHTML = `&copy; <span id="year"></span> Peter Vils Hansen`;
-
-        // Create the back to home link for the footer
-        const footerBackLink = document.createElement('a');
-        footerBackLink.href = BASE_URL;
-        footerBackLink.textContent = 'Back to home →';
-
-        // Append elements to the footer div
-        footerDiv.appendChild(copyrightDiv);
-        footerDiv.appendChild(footerBackLink);
-
-        // Append the footer div to the footer
-        footer.appendChild(footerDiv);
-
-        // Replace the loading indicator with the actual content
-        const container = document.getElementById('page-content') || document.querySelector('main');
-        container.innerHTML = '';
-        container.appendChild(backLink);
-        container.appendChild(postContent);
-        container.appendChild(footer); // Append footer
-
-        // Update the page title
-        const postTitle = postContent.querySelector('h1')?.textContent || 'Blog Page';
-        document.title = `${postTitle} | Minimal Blog`;
-
-        // Set the year in the footer after it has been added to the DOM
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-    } catch (error) {
-        console.error('Error loading page:', error);
-        const container = document.getElementById('page-content') || document.querySelector('main');
-        container.innerHTML = `
-            <div class="error">
-                <h2>Page Not Found</h2>
-                <p>The requested page could not be loaded.</p>
-                <a href="${BASE_URL}">← Back to home</a>
-            </div>
-        `;
-    }
-}
-
 // Helper function to format dates
 function formatDate(dateString) {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -339,8 +250,8 @@ function formatDate(dateString) {
 function handleNavigation() {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('post')) {
-        // We're viewing a post or a page
-        if (!document.getElementById('post-content') && !document.getElementById('page-content')) {
+        // We're viewing a post
+        if (!document.getElementById('post-content')) {
             // Create post content container if it doesn't exist
             const main = document.querySelector('main');
             main.innerHTML = '<div id="post-content" class="loading">Loading post...</div>';
