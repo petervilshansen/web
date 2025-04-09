@@ -23,7 +23,7 @@ Ideen er nu, at man slår et slag med sine fem terninger, aflæser øjnene, fx 1
 
 Der findes mange steder på nettet, hvor man kan generere en Diceware-sætning på engelsk, men for nylig havde jeg brug for at lave en på dansk. Jeg kunne naturligvis have lavet en på engelsk og efterfølgende oversat den til dansk, men det ville have været mere besværligt, end hvis jeg havde en dansk Diceware-ordliste til at begynde med.
 
-Efter nogen søgen på nettet, fandt jeg [en dansk Diceware-ordliste](https://github.com/aslak/dansk-diceware) ([printervenlig PDF-udgave](https://github.com/aslak/dansk-diceware/blob/master/dansk-diceware-a4-print.pdf).
+Efter nogen søgen på nettet, fandt jeg [en dansk Diceware-ordliste](https://github.com/aslak/dansk-diceware) ([printervenlig PDF-udgave](https://github.com/aslak/dansk-diceware/blob/master/dansk-diceware-a4-print.pdf)).
 
 Jeg havde ikke lige fem terninger ved hånden, men heldigvis har [random.org](https://random.org) (som specialiserer sig i, ja endda sælger, ægte tilfældigt genererede bits via deres website) en terningkaster, der kan simulere kast med fem terninger.
 
