@@ -47,6 +47,7 @@ function generatePassphrase(){
 			phrase += seperator
 		}
 	}
+	console.log("Password: "+phrase);
 	document.getElementById("passphrase").innerHTML = phrase;
 }
 
