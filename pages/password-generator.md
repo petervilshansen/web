@@ -14,6 +14,6 @@ are done locally on your computer.
 
 ## Here is your automatically generated secure pass phrase
 
-<code><div id="passphrase"></div></code>
+<code id="passphrase"></code></div>
 
 Reload the page to generate a new pass phrase.
