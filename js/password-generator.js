@@ -57,7 +57,6 @@ async function getText(file) {
 	let y = await x.text();
 
 	wordList = y.split('\n');
-	generatePassphrase()
 }
 
 getText(file)
