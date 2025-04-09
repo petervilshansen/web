@@ -148,6 +148,9 @@ header, main {
     height: auto; /* Maintain aspect ratio */
     border-radius: 0.25rem; /* Add slightly rounded corners to images */
     box-shadow: 0 2px 4px var(--shadow-color); /* Add a subtle shadow to images */
+    display: block; /* Make the image a block-level element */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
 }
 
 /* Reset default list styling within post content */
