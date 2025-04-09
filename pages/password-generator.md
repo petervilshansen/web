@@ -13,5 +13,5 @@ The random number generator used to select words from the list is cryptographica
 are done locally on your computer.
 
 <div class="highlight-box" id="passphrase"></div>
-<a href="#" onclick="generatePassphrase()">Generate a pass phrase</a>
+<a type="button" onclick="generatePassphrase()">Generate a pass phrase</a>
 <b>&rarr;</b>
