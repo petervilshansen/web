@@ -17,5 +17,5 @@ Processen er meget enkel: Åben https://photos.google.com/ i en browser og træk
 
 Hvis du efterfølgende gerne have vil have gemt en lokal kopi af alle dine digitale billeder fra Google Photos, kan du med fordel bruge Google Takeout på https://takeout.google.com/.
 
-Bemærk, at Google Photos som udgangspunkt gemmer dine billeder komprimeret til hvad Google kalder “høj kvalitet” hvis det har en opløsning på mere end 16 megapixel. Personligt kan jeg ikke forskel på originalen og kopien gemt i Google Photos, og hvis billedet har en opløsning på 16 megapixel eller mindre, bliver det slet ikke komprimeret, men gemt nøjagtig som det er.
+Bemærk, at Google Photos som udgangspunkt gemmer dine billeder komprimeret til hvad Google kalder "høj kvalitet" hvis det har en opløsning på mere end 16 megapixel. Personligt kan jeg ikke se forskel på originalen og kopien gemt i Google Photos, og hvis billedet har en opløsning på 16 megapixel eller mindre, bliver det slet ikke komprimeret, men gemt nøjagtig som det er.
 
