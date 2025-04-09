@@ -249,7 +249,7 @@ footer.footer {
 
 @media (max-width: 480px) {
     :root {
-        --site-width: 95%;
+        --site-width: 90%;
         --title-font-size: 1.8rem; /* Adjust title size further */
     }
 }
