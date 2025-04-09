@@ -2,11 +2,12 @@
 :root {
     --text-color: #333; /* Default text color (dark gray) */
     --bg-color: #fff; /* Default background color (white) */
-    --primary-color: #2563eb; /* Primary interactive color (blue) */
+    --primary-color: #5c85bf; /* Softer, desaturated blue */
     --secondary-color: #f3f4f6; /* Secondary background/accent color (light gray) */
     --border-color: #e5e7eb; /* Default border color (light gray) */
     --spacing: 1rem; /* Standard spacing unit */
     --site-width: 50%; /* Maximum width of the main content area */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Subtle shadow color */
 }
 
 /* Dark mode specific variables, overriding defaults */
@@ -14,9 +15,10 @@
     :root {
         --text-color: #f3f4f6; /* Text color in dark mode (light gray) */
         --bg-color: #111827; /* Background color in dark mode (dark gray) */
-        --primary-color: #3b82f6; /* Primary interactive color in dark mode (light blue) */
+        --primary-color: #8ab4f1; /* Softer, desaturated blue for dark mode */
         --secondary-color: #1f2937; /* Secondary background/accent color in dark mode (darker gray) */
         --border-color: #374151; /* Border color in dark mode (darker gray) */
+        --shadow-color: rgba(255, 255, 255, 0.1); /* Subtle shadow color for dark mode */
     }
 }
 
@@ -56,6 +58,7 @@ header, main {
     font-size: 1.8rem; /* Larger font size for the title */
     font-weight: 600; /* Semi-bold font weight */
     margin-bottom: 0.5rem; /* Spacing below the title */
+    color: var(--primary-color); /* Use the softer primary color for the title */
 }
 
 /* Link style for the blog title (remove default link styling) */
@@ -79,7 +82,7 @@ header, main {
 
 /* Hover effect for navigation links */
 .nav a:hover {
-    color: var(--primary-color); /* Change color on hover */
+    color: var(--primary-color); /* Use the softer primary color on hover */
 }
 
 /* Introductory paragraph styles */
@@ -102,6 +105,7 @@ header, main {
     border: 1px solid var(--border-color); /* Border around each post */
     border-radius: 0.5rem; /* Rounded corners */
     padding: var(--spacing); /* Padding inside the post card */
+    box-shadow: 0 2px 4px var(--shadow-color); /* Add a subtle shadow */
 }
 
 /* Title of each post */
@@ -109,6 +113,7 @@ header, main {
     font-size: 1.25rem; /* Slightly larger font size */
     font-weight: 600; /* Semi-bold font weight */
     margin-bottom: 0.5rem; /* Spacing below the title */
+    color: var(--primary-color); /* Use the softer primary color for post titles */
 }
 
 /* Link style for the post title */
@@ -119,7 +124,7 @@ header, main {
 
 /* Hover effect for the post title link */
 .post-title a:hover {
-    color: var(--primary-color); /* Change color on hover */
+    color: var(--primary-color); /* Use the softer primary color on hover */
 }
 
 /* Date of the post */
@@ -133,6 +138,8 @@ header, main {
 .post-content img {
     max-width: 100%; /* Ensure images don't exceed container width */
     height: auto; /* Maintain aspect ratio */
+    border-radius: 0.25rem; /* Add slightly rounded corners to images */
+    box-shadow: 0 2px 4px var(--shadow-color); /* Add a subtle shadow to images */
 }
 
 /* Reset default list styling within post content */
