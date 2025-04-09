@@ -45,13 +45,16 @@ body {
 
 /* Container to control the site's maximum width */
 .site-container {
-    width: var(--site-width); /* Use site width variable - ENSURING IT'S 50% */
+    width: var(--site-width); /* Explicitly set width using the variable */
+    max-width: var(--site-width); /* Ensure it doesn't exceed the variable's value */
     padding: var(--spacing); /* Use standard spacing for padding */
+    margin-left: auto; /* Center the container horizontally */
+    margin-right: auto; /* Center the container horizontally */
 }
 
 /* Styles for header and main content areas */
 header, main {
-    width: 100%; /* Take full width of the container */
+    width: 100%; /* Take full width of the CONTAINER */
     margin-bottom: var(--spacing); /* Add spacing below header and main */
 }
 
@@ -213,9 +216,9 @@ header, main {
     overflow-x: auto; /* Enable horizontal scrolling if content overflows */
     font-family: inherit; /* Use the same font as the body */
     white-space: pre-wrap; /* Preserve whitespace and wrap text */
-    width: 95%; /* Set the width to 95% */
-    margin-left: auto; /* Set left margin to auto for centering */
-    margin-right: auto; /* Set right margin to auto for centering */
+    width: 95%; /* Set the width to 95% of the container */
+    margin-left: auto; /* Center within the container */
+    margin-right: auto; /* Center within the container */
     border-top-width: 1px; /* Make the top border the same width as the sides/bottom */
 }
 
@@ -226,9 +229,9 @@ header, main {
         color: #f0f8ff; /* Light text on dark blue in dark mode */
         border: 1px solid var(--highlight-border-dark); /* Use dark mode border color */
         border-top-width: 1px; /* Make the top border the same width in dark mode */
-        width: 95%; /* Set the width to 95% in dark mode */
-        margin-left: auto; /* Set left margin to auto for centering in dark mode */
-        margin-right: auto; /* Set right margin to auto for centering in dark mode */
+        width: 95%; /* Set the width to 95% of the container in dark mode */
+        margin-left: auto; /* Center within the container in dark mode */
+        margin-right: auto; /* Center within the container in dark mode */
     }
 }
 
