@@ -252,4 +252,8 @@ footer.footer {
         --site-width: 90%;
         --title-font-size: 1.8rem; /* Adjust title size further */
     }
+	
+	.highlight-box {
+		width: auto;
+	}
 }
