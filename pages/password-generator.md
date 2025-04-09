@@ -14,7 +14,7 @@ The random number generator used to select words from the list is cryptographica
 are done locally on your computer.
 
 <script type="text/javascript">
-	let file = "/mfw/js/wordlist_intl.txt"
+	let file = "wordlist.txt"
 	var wordList
 
 	var amount = 5
