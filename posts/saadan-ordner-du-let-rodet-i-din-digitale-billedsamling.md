@@ -2,7 +2,7 @@
 
 <!--
 date: 2019-09-22
-excerpt: Denne guide tilbyder en simpel løsning til at rydde op i din rodede billedsamling. Lær hvordan du nemt fjerner dubletter og organiserer tusindvis af billeder ved hjælp af Google Photos og Google Takeout. Slip for at bekymre dig om tabte minder og få styr på dine digitale billeder én gang for alle.
+excerpt: Ryd nemt op i dine mange billeder! Guiden viser, hvordan du fjerner dubletter og organiserer dem effektivt med Google Photos og Google Takeout, så dine minder er sikre og overskuelige.
 -->
 
 Hvis du er som mig, kan du lide at tage billeder. Mange billeder. Men du er knap så skarp til at få organiseret alle billederne, og gennem årene har billedsamlingen hobet sig op fordelt på flere forskellige enheder: telefonen, nogle gamle cd'er eller dvd'er, måske en ekstern harddisk og et par USB-pinde.

@@ -1,6 +1,6 @@
 <!--
 	date: 2020-02-10
-	excerpt: I en digital tidsalder, hvor vores liv er fyldt med onlinekonti, er sikkerhed afgørende. Denne post dykker ned i forfatterens personlige rejse gennem et hav af password managers og lander sikkert på 1Password som den ultimative løsning. Med fokus på brugervenlighed, sikkerhed og firmaets lange historie, argumenterer jeg for, hvorfor 1Password er det bedste valg til at beskytte dine digitale hemmeligheder.
+	excerpt: Sikkerhed i onlineverdenen kræver en password manager. Efter at have prøvet flere, er 1Password det bedste valg grundet brugervenlighed, stærk sikkerhed og firmaets pålidelighed.
 -->
 
 # Træt af usikre kodeord?

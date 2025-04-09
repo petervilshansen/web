@@ -1,6 +1,6 @@
 <!--
 	date: 2019-02-17
-	excerpt: Denne blogpost er en hyldest til Søhøjlandets naturskønhed, skrevet af en amatørfotograf, der ønsker at dele sin begejstring for området omkring Silkeborg. Forfatteren fremhæver Søhøjlandet som et af Danmarks smukkeste steder og opfordrer læserne til at besøge området, med en henvisning til Visit Silkeborg for turistinformation.
+	excerpt: Amatørfotograf hylder Søhøjlandets naturskønhed omkring Silkeborg og opfordrer til besøg. Området fremhæves som Danmarks smukkeste. Henvisning til Visit Silkeborg.
 -->
 
 # Silkeborg: Et paradis for naturelskere

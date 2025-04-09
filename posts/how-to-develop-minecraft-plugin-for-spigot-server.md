@@ -2,7 +2,7 @@
 
 <!--
 date: 2019-02-19
-excerpt: This guide demystifies the process of developing your own Minecraft plugins for Spigot servers. Combining coding expertise with Minecraft passion, it offers a concise, step-by-step approach to creating functional plugins. Learn to set up your development environment, write essential code, and deploy your creations seamlessly. Whether you're a seasoned coder or a Minecraft enthusiast looking to expand your skills, this book provides the tools to bring your unique Minecraft visions to life.
+excerpt: Learn to make your own Minecraft plugins for Spigot! This guide offers a step-by-step approach to development, from setup to implementation. Combine coding skills with Minecraft passion and create unique game experiences.
 -->
 
 The topic for today is sufficiently interesting to people outside Denmark that I have decided to write this blog post in English in order to reach a wider audience.

@@ -1,5 +1,5 @@
 <!--
-	excerpt: This post explores why this blog utilizes a minimalist architecture centered on GitHub Pages for free hosting and Markdown for content creation. GitHub Actions automates the generation of a JSON index from Markdown files, enabling dynamic client-side rendering with JavaScript. Responsive CSS ensures cross-device compatibility, and performance is optimized through techniques like lazy loading and critical CSS inlining, all contributing to an efficient and maintainable static site.
+	excerpt: This blog's simple setup: Free GitHub Pages hosting, easy Markdown content. Automation via Actions, dynamic JavaScript loading, responsive design for speed and effortless upkeep.
 -->
 
 # Building a Simple Blog: GitHub Pages, Markdown, and JavaScript

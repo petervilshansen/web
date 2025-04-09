@@ -1,6 +1,6 @@
 <!--
 	date: 2019-09-22
-	excerpt: Diceware er en metode til at generere stærke kodesætninger ved hjælp af terninger og en ordliste. Metoden er nem at bruge og giver kodesætninger, der er nemmere at huske end traditionelle kodeord. Artiklen beskriver, hvordan man bruger Diceware-metoden med en dansk ordliste og et online terningkastværktøj.
+	excerpt: Diceware: Nem metode til stærke kodesætninger med terninger og ordliste. Artiklen viser brug med dansk ordliste og online terningkast. Huskes lettere end kodeord.
 
 -->
 

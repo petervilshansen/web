@@ -2,7 +2,7 @@
 
 <!--
 date: 2019-08-18
-excerpt: This guide details how to export saved passwords from Google Chrome to prevent losing access if your Google account becomes inaccessible. It provides step-by-step instructions for exporting passwords as a CSV file, encrypting it with a strong password, and securely storing it on an external drive. The guide emphasizes the importance of securely deleting the unencrypted file and recommends using Google Takeout for backing up other Google data.
+excerpt: Eksporter Chrome-gemte kodeord som CSV for at undgå tab ved problemer med Google-konto. Guide viser trin, kryptering og sikker opbevaring på ekstern disk. Husk sikker sletning af fil.
 
 -->
 
