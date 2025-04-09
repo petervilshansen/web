@@ -1,67 +1,62 @@
 /* Root variables for consistent theming */
 :root {
-    --text-color: #333; /* Default text color (dark gray) */
-    --bg-color: #fff; /* Default background color (white) */
-    --primary-color: #5c85bf; /* Softer, desaturated blue */
-    --secondary-color: #f3f4f6; /* Secondary background/accent color (light gray) */
-    --border-color: #e5e7eb; /* Default border color (light gray) */
-    --spacing: 1rem; /* Standard spacing unit */
-    --site-width: 50%; /* Maximum width of the main content area */
-    --shadow-color: rgba(0, 0, 0, 0.1); /* Subtle shadow color */
-    --highlight-bg-light: #f0f8ff; /* Very light blue for highlight box (light mode) */
-    --highlight-bg-dark: #1e3a8a; /* Darker blue for highlight box (dark mode) */
-    --highlight-border-light: #add8e6; /* Light blue border for highlight box (light mode) */
-    --highlight-border-dark: #4299e1; /* Lighter blue border for highlight box (dark mode) */
-    --code-bg-light: #f8f8f8; /* Light gray for code block background (light mode) */
-    --code-bg-dark: #272822; /* Dark gray for code block background (dark mode) */
-    --code-border-light: #eee; /* Light gray border for code block (light mode) */
-    --code-border-dark: #49483e; /* Darker gray border for code block (dark mode) */
+    --text-color: #333;
+    --bg-color: #fff;
+    --primary-color: #5c85bf;
+    --secondary-color: #f3f4f6;
+    --border-color: #e5e7eb;
+    --spacing: 1rem;
+    --site-width: 50%;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --highlight-bg-light: #f0f8ff;
+    --highlight-bg-dark: #1e3a8a;
+    --highlight-border-light: #add8e6;
+    --highlight-border-dark: #4299e1;
+    --code-bg-light: #f8f8f8;
+    --code-bg-dark: #272822;
+    --code-border-light: #eee;
+    --code-border-dark: #49483e;
 }
 
-/* Dark mode specific variables, overriding defaults */
 @media (prefers-color-scheme: dark) {
     :root {
-        --text-color: #f3f4f6; /* Text color in dark mode (light gray) */
-        --bg-color: #111827; /* Background color in dark mode (dark gray) */
-        --primary-color: #8ab4f1; /* Softer, desaturated blue for dark mode */
-        --secondary-color: #1f2937; /* Secondary background/accent color in dark mode (darker gray) */
-        --border-color: #374151; /* Border color in dark mode (darker gray) */
-        --shadow-color: rgba(255, 255, 255, 0.1); /* Subtle shadow color for dark mode */
+        --text-color: #f3f4f6;
+        --bg-color: #111827;
+        --primary-color: #8ab4f1;
+        --secondary-color: #1f2937;
+        --border-color: #374151;
+        --shadow-color: rgba(255, 255, 255, 0.1);
     }
 }
 
-/* Base body styles for overall appearance */
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; /* Primary font with system fallbacks */
-    line-height: 1.6; /* Standard line height for readability */
-    color: var(--text-color); /* Use text color variable */
-    background-color: var(--bg-color); /* Use background color variable */
-    display: flex; /* Enable flexbox for centering content */
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    min-height: 100vh; /* Ensure body takes at least the full viewport height */
-    margin: 0; /* Remove default body margins */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
 }
 
-/* Container to control the site's maximum width */
 .site-container {
-    width: var(--site-width); /* Explicitly set width using the variable */
-    max-width: var(--site-width); /* Ensure it doesn't exceed the variable's value */
-    padding: var(--spacing); /* Use standard spacing for padding */
-    margin-left: auto; /* Center the container horizontally */
-    margin-right: auto; /* Center the container horizontally */
+    width: var(--site-width);
+    max-width: var(--site-width);
+    padding: var(--spacing);
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Styles for header and main content areas */
 header, main {
-    width: 100%; /* Take full width of the CONTAINER */
-    margin-bottom: var(--spacing); /* Add spacing below header and main */
+    width: 100%;
+    margin-bottom: var(--spacing);
 }
 
-/* Header specific styles */
 .header {
-    padding: var(--spacing) 0; /* Vertical padding */
-    border-bottom: 1px solid var(--border-color); /* Bottom border for visual separation */
+    padding: var(--spacing) 0;
+    border-bottom: 1px solid var(--border-color);
 }
 
 /* Blog title styles */
