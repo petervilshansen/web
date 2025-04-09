@@ -194,7 +194,7 @@ async function loadPostContent() {
 
         // Create the copyright section
         const copyrightDiv = document.createElement('div');
-        copyrightDiv.innerHTML = `&copy; <span id="year"></span> Peter Vils Hansen.`;
+        copyrightDiv.innerHTML = `&copy; <span id="year"></span> Peter Vils Hansen`;
 
         // Create the back to home link for the footer
         const footerBackLink = document.createElement('a');
