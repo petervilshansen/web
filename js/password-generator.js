@@ -1,4 +1,4 @@
-let file = "wordlist.txt"
+let file = "https://petervilshansen.github.io/web/wordlist.txt"
 var wordList
 
 var amount = 5
