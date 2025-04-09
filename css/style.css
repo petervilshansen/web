@@ -45,7 +45,7 @@ body {
 
 /* Container to control the site's maximum width */
 .site-container {
-    width: var(--site-width); /* Use site width variable */
+    width: var(--site-width); /* Use site width variable - ENSURING IT'S 50% */
     padding: var(--spacing); /* Use standard spacing for padding */
 }
 
