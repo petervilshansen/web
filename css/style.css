@@ -6,7 +6,7 @@
     --secondary-color: #f3f4f6;
     --border-color: #e5e7eb;
     --spacing: 1rem;
-    --site-width: 40%;
+    --site-width: 50%;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --highlight-bg-light: #f0f8ff;
     --highlight-bg-dark: #1e3a8a;
@@ -232,7 +232,7 @@ footer.footer {
 @media (max-width: 768px) {
     :root {
         --spacing: 0.75rem;
-        --site-width: 85%;
+        --site-width: 50%;
         --title-font-size: 2rem; /* Adjust title size on smaller screens */
     }
 
