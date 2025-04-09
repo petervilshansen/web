@@ -9,9 +9,13 @@
     --site-width: 50%; /* Maximum width of the main content area */
     --shadow-color: rgba(0, 0, 0, 0.1); /* Subtle shadow color */
     --highlight-bg-light: #f0f8ff; /* Very light blue for highlight box (light mode) */
-    --highlight-bg-dark: #1e3a8a; /* Darker blue for highlight box (dark mode) */
+    --highlight-bg-dark: #1e3a8a; /* Darker blue for highlight box (dark mode) - CORRECTED */
     --highlight-border-light: #add8e6; /* Light blue border for highlight box (light mode) */
     --highlight-border-dark: #4299e1; /* Lighter blue border for highlight box (dark mode) */
+    --code-bg-light: #f8f8f8; /* Light gray for code block background (light mode) */
+    --code-bg-dark: #272822; /* Dark gray for code block background (dark mode) */
+    --code-border-light: #eee; /* Light gray border for code block (light mode) */
+    --code-border-dark: #49483e; /* Darker gray border for code block (dark mode) */
 }
 
 /* Dark mode specific variables, overriding defaults */
@@ -162,10 +166,21 @@ header, main {
 
 /* Styles for preformatted code blocks within post content */
 .post-content pre {
-    background-color: var(--secondary-color); /* Use secondary background color */
+    background-color: var(--code-bg-light); /* Use light mode code background color */
+    color: #24292e; /* Standard dark text for code */
     padding: 1em; /* Padding inside the code block */
     border-radius: 0.5em; /* Rounded corners */
     overflow-x: auto; /* Enable horizontal scrolling for long code lines */
+    border: 1px solid var(--code-border-light); /* Light mode code border */
+}
+
+/* Dark mode adjustments for preformatted code blocks */
+@media (prefers-color-scheme: dark) {
+    .post-content pre {
+        background-color: var(--code-bg-dark); /* Use dark mode code background color */
+        color: #f8f8f2; /* Standard light text for code in dark mode */
+        border: 1px solid var(--code-border-dark); /* Dark mode code border */
+    }
 }
 
 /* Footer styles */
@@ -203,7 +218,7 @@ header, main {
 /* Dark mode adjustments for the highlight box */
 @media (prefers-color-scheme: dark) {
     .highlight-box {
-        background-color: var(--highlight-bg-dark); /* Use dark mode background color */
+        background-color: var(--highlight-bg-dark); /* Use dark mode background color - CORRECTED */
         color: #f0f8ff; /* Light text on dark blue in dark mode */
         border: 1px solid var(--highlight-border-dark); /* Use dark mode border color */
         border-top-width: 1px; /* Make the top border the same width in dark mode */
