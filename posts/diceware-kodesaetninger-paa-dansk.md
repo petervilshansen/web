@@ -19,17 +19,19 @@ En relativt kendt metodik er kendt som [Diceware](http://world.std.com/~reinhold
 
 ![Et udsnit af en Diceware-ordliste med danske ord.](img/diceware-udsnit.png)
 
-Ideen er nu, at man slår et slag med sine fem terninger, aflæser øjnene, fx 1-4-2-5-4, og finder det tilsvarende ord i listen. Dette gør man et antal gange, helst fem eller flere, hvilket resulterer i den færdige kodesætning, eksempelvis bugner hustru aflyst nypris sektor.
+Ideen er nu, at man slår et slag med sine fem terninger, aflæser øjnene, fx 1-4-2-5-4, og finder det tilsvarende ord i listen. Dette gør man et antal gange, helst fem eller flere, hvilket resulterer i den færdige kodesætning, eksempelvis `bugner hustru aflyst nypris sektor`.
 
 Der findes mange steder på nettet, hvor man kan generere en Diceware-sætning på engelsk, men for nylig havde jeg brug for at lave en på dansk. Jeg kunne naturligvis have lavet en på engelsk og efterfølgende oversat den til dansk, men det ville have været mere besværligt, end hvis jeg havde en dansk Diceware-ordliste til at begynde med.
 
-Efter nogen søgen på nettet, fandt jeg en dansk Diceware-ordliste. Jeg havde ikke lige fem terninger ved hånden, men heldigvis har random.org (som specialiserer sig i, ja endda sælger, ægte tilfældigt genererede bits via deres website) en terningkaster, der kan simulere kast med fem terninger.
+Efter nogen søgen på nettet, fandt jeg [en dansk Diceware-ordliste](https://github.com/aslak/dansk-diceware) ([printervenlig PDF-udgave](https://github.com/aslak/dansk-diceware/blob/master/dansk-diceware-a4-print.pdf).
+
+Jeg havde ikke lige fem terninger ved hånden, men heldigvis har [random.org](https://random.org) (som specialiserer sig i, ja endda sælger, ægte tilfældigt genererede bits via deres website) en terningkaster, der kan simulere kast med fem terninger.
 
 ![Terningkasteren på random.org har her kastet fem terninger.](img/diceware-random-org.png)
 
 Terningkasteren på random.org har her kastet fem terninger. Dette kast med værdierne 1-5-6-1-3 vil resultere i ordet angå:
 
-Ordet angå er nummer 15613 i den danske Diceware-ordliste.
+Ordet `angå` er nummer 15613 i den danske Diceware-ordliste.
 
 ![Random.org viser tre ord.](img/diceware-tre-ord.png)
 
