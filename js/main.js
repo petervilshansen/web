@@ -261,7 +261,7 @@ async function loadPageContent() {
 
         // Create the post content structure
         const postContent = document.createElement('article');
-        postContent.className = 'post-content';
+        postContent.className = 'page-content';
         postContent.innerHTML = html;
 
         // Add back link
@@ -298,7 +298,7 @@ async function loadPageContent() {
         footer.appendChild(footerDiv);
 
         // Replace the loading indicator with the actual content
-        const container = document.getElementById('post-content') || document.querySelector('main');
+        const container = document.getElementById('page-content') || document.querySelector('main');
         container.innerHTML = '';
         container.appendChild(backLink);
         container.appendChild(postContent);
@@ -313,7 +313,7 @@ async function loadPageContent() {
 
     } catch (error) {
         console.error('Error loading page:', error);
-        const container = document.getElementById('post-content') || document.querySelector('main');
+        const container = document.getElementById('page-content') || document.querySelector('main');
         container.innerHTML = `
             <div class="error">
                 <h2>Page Not Found</h2>
@@ -339,8 +339,8 @@ function formatDate(dateString) {
 function handleNavigation() {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('post')) {
-        // We're viewing a post
-        if (!document.getElementById('post-content')) {
+        // We're viewing a post or a page
+        if (!document.getElementById('post-content') && !document.getElementById('page-content')) {
             // Create post content container if it doesn't exist
             const main = document.querySelector('main');
             main.innerHTML = '<div id="post-content" class="loading">Loading post...</div>';
