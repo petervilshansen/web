@@ -22,8 +22,6 @@ function randomWord(array){
 	// Access the random number
 	const randomNumber = getRandomNumberInRange(0, wordList.length);
 
-	console.log(randomNumber);
-	
 	return array[randomNumber].trim();
 }
 
