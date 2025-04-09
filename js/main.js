@@ -4,14 +4,16 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('year').textContent = new Date().getFullYear();
     
 	const urlParams = new URLSearchParams(window.location.search);
-	alert(urlParams);
 	
     // Check if we're on the homepage or a post page
     if (document.getElementById('post-list')) {
-        loadPostList();
+		alert(1);
+	    loadPostList();
     } else if (document.getElementById('post-content') && urlParams.entries().next().value[0] == 'post') {
-        loadPostContent();
+        alert(2);
+		loadPostContent();
     } else {
+		alert(3);
 		loadPageContent();
 	}
 });
