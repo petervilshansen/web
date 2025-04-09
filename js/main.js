@@ -235,6 +235,58 @@ async function loadPostContent() {
     }
 }
 
+// Function to load and render a single page
+async function loadPageContent(pageSlug) {
+    const PAGES_DIR = `${BASE_URL}pages/`;
+
+    if (!pageSlug) {
+        window.location.href = BASE_URL;
+        return;
+    }
+
+    try {
+        const response = await fetch(`${PAGES_DIR}${pageSlug}.md`);
+        if (!response.ok) throw new Error('Page not found');
+
+        const markdown = await response.text();
+        const html = marked.parse(markdown);
+
+        // Create the page content structure (you might want a different class)
+        const pageContent = document.createElement('article');
+        pageContent.className = 'page-content';
+        pageContent.innerHTML = html;
+
+        // Add back link (optional, adjust as needed)
+        const backLink = document.createElement('a');
+        backLink.href = BASE_URL;
+        backLink.textContent = '← Back to home';
+        backLink.style.display = 'block';
+        backLink.style.marginBottom = '2rem';
+
+        // Replace the main content area with the page content
+        const container = document.querySelector('main');
+        container.innerHTML = '';
+        container.appendChild(backLink);
+        container.appendChild(pageContent);
+        // You might not need a separate footer for pages, adjust as needed
+
+        // Update the page title
+        const pageTitle = pageContent.querySelector('h1')?.textContent || pageSlug.replace(/-/g, ' ');
+        document.title = `${pageTitle} | Minimal Blog`;
+
+    } catch (error) {
+        console.error('Error loading page:', error);
+        const container = document.querySelector('main');
+        container.innerHTML = `
+            <div class="error">
+                <h2>Page Not Found</h2>
+                <p>The requested page could not be loaded.</p>
+                <a href="${BASE_URL}">← Back to home</a>
+            </div>
+        `;
+    }
+}
+
 // Helper function to format dates
 function formatDate(dateString) {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -246,17 +298,24 @@ function formatDate(dateString) {
     }
 }
 
-// Handle navigation between homepage and posts
+// Handle navigation between homepage, pages, and posts
 function handleNavigation() {
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('post')) {
+    const postSlug = urlParams.get('post');
+    const pageSlug = urlParams.get('page');
+
+    if (postSlug) {
         // We're viewing a post
         if (!document.getElementById('post-content')) {
-            // Create post content container if it doesn't exist
             const main = document.querySelector('main');
             main.innerHTML = '<div id="post-content" class="loading">Loading post...</div>';
         }
         loadPostContent();
+    } else if (pageSlug) {
+        // We're viewing a page
+        const main = document.querySelector('main');
+        main.innerHTML = '<div id="page-content" class="loading">Loading page...</div>';
+        loadPageContent(pageSlug);
     } else {
         // We're on the homepage
         if (document.getElementById('post-list')) {
