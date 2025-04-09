@@ -1,4 +1,4 @@
-let file = "https://petervilshansen.github.io/web/wordlist.txt"
+let file = "https://petervilshansen.github.io/web/js/wordlist.txt"
 var wordList
 
 var amount = 5
@@ -47,7 +47,6 @@ function generatePassphrase(){
 			phrase += seperator
 		}
 	}
-	console.log("Password: "+phrase);
 	document.getElementById("passphrase").innerHTML = phrase;
 }
 
