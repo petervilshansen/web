@@ -1,19 +1,17 @@
 # Password Generator
  
-On this page you can generate 4-word pass phrases from a list of 30,557 Danish words. 
+På denne side kan du generere 4-ordssætninger ud fra en liste med 30.557 danske ord.
 
-<a href="js/wordlist.txt">Here is the complete word list</a>, if you're curious.
+<a href="js/wordlist.txt">Her er den komplette ordliste</a>, hvis du er nysgerrig.
 
-Each word adds log2(30,557) ~= 14.899 bits of entropy for a total of ~ 74.496 bits of entropy. 30,557<sup>5</sup> = 26,641,187,000,017,024,344,557
-combinations.
+Hvert ord tilføjer log2(30,557) ~= 14,899 bit entropi til i alt ~ 74,496 bit entropi. 30,5575 = 26,641,187,000,017,024,344,557 kombinationer.
 
-That's *26 sextillion 641 quintillion 187 quadrillion 17 billion 24 million 344 thousand 557* different combinations, or roughly 3,500 times the number of grains of sand on Earth (~ 7.5 x 10<sup>18</sup>).
+Det er 26 sextillioner 641 quintillioner 187 kvadrillioner 17 milliarder 24 millioner 344 tusind 557 forskellige kombinationer, eller ca. 3.500 gange antallet af sandkorn på jorden (~ 7,5 x 10<sup>18</sup>).
 
-The random number generator used to select words from the list is cryptographically secure, and nothing ever leaves your computer. All computations
-are done locally on your computer.
+Den tilfældige talgenerator, der bruges til at vælge ord fra listen, er kryptografisk sikker, og intet forlader nogensinde din computer. Alle beregninger udføres lokalt på din computer.
 
-### Here is your automatically generated secure pass phrase
+### Her er din automatisk genererede sikre adgangssætning
 
 <code id="passphrase"></code></div>
 
-Reload the page to generate a new pass phrase.
+Genindlæs siden for at generere en ny adgangskode.
