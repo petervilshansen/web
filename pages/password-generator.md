@@ -12,6 +12,5 @@ That's *26 sextillion 641 quintillion 187 quadrillion 17 billion 24 million 344 
 The random number generator used to select words from the list is cryptographically secure, and nothing ever leaves your computer. All computations
 are done locally on your computer.
 
-<div class="highlight-box" id="passphrase"></div>
-<button onclick="generatePassphrase()">Generate a pass phrase</button>
-<b>&rarr;</b>
+<div class="highlight-box" id="passphrase"><button onclick="generatePassphrase()">Generate a pass phrase</button>&rarr;</div>
+
