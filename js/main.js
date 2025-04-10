@@ -294,7 +294,7 @@ async function loadPageContent(pageSlug) {
         container.innerHTML = '';
         container.appendChild(backLink);
         container.appendChild(pageContent);
-        // You might not need a separate footer for pages, adjust as needed
+        container.appendChild(footer); // Append footer
 
         // Set the year in the footer after it has been added to the DOM
         document.getElementById('year').textContent = new Date().getFullYear();
