@@ -16,6 +16,7 @@
     --code-bg-dark: #272822;
     --code-border-light: #eee;
     --code-border-dark: #49483e;
+	--code-font-size: x-large;
     --title-font-size: 2.2rem; /* Larger base font size for title */
     --title-font-weight: 700; /* Bold font weight for title */
     --title-color: var(--primary-color); /* Use primary color for title */
@@ -178,6 +179,10 @@ header.header {
     border-radius: 0.5em;
     overflow-x: auto;
     border: 1px solid var(--code-border-light);
+}
+
+.post-content code {
+	font-size: var(--code-font-size);
 }
 
 @media (prefers-color-scheme: dark) {
