@@ -263,12 +263,41 @@ async function loadPageContent(pageSlug) {
         backLink.style.display = 'block';
         backLink.style.marginBottom = '2rem';
 
+        // Add footer
+        const footer = document.createElement('footer');
+        footer.className = 'footer'; // Add the 'footer' class
+
+        // Create the div for flex layout within the footer
+        const footerDiv = document.createElement('div');
+        footerDiv.style.display = 'flex';
+        footerDiv.style.justifyContent = 'space-between';
+        footerDiv.style.alignItems = 'center';
+
+        // Create the copyright section
+        const copyrightDiv = document.createElement('div');
+        copyrightDiv.innerHTML = `&copy; <span id="year"></span> Peter Vils Hansen`;
+
+        // Create the back to home link for the footer
+        const footerBackLink = document.createElement('a');
+        footerBackLink.href = BASE_URL;
+        footerBackLink.textContent = 'Back to home →';
+
+        // Append elements to the footer div
+        footerDiv.appendChild(copyrightDiv);
+        footerDiv.appendChild(footerBackLink);
+
+        // Append the footer div to the footer
+        footer.appendChild(footerDiv);
+
         // Replace the main content area with the page content
         const container = document.querySelector('main');
         container.innerHTML = '';
         container.appendChild(backLink);
         container.appendChild(pageContent);
         // You might not need a separate footer for pages, adjust as needed
+
+        // Set the year in the footer after it has been added to the DOM
+        document.getElementById('year').textContent = new Date().getFullYear();
 
         // Update the page title
         const pageTitle = pageContent.querySelector('h1')?.textContent || pageSlug.replace(/-/g, ' ');
