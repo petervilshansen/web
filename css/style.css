@@ -181,7 +181,7 @@ header.header {
     border: 1px solid var(--code-border-light);
 }
 
-.post-content .highlight-box code {
+span #highlight-box code {
 	font-size: var(--code-font-size);
 }
 
