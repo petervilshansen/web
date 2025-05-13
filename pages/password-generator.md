@@ -14,6 +14,6 @@ Den tilfældige talgenerator, der bruges til at vælge ord fra listen, er krypto
 
 ### Her er din automatisk genererede sikre adgangssætning
 
-<span class="highlight-box"><code id="passphrase"></code></span>
+<div class="highlight-box"><code id="passphrase"></code></div>
 
 Genindlæs siden for at generere en ny adgangskode.
